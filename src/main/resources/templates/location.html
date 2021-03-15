@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script type="text/javascript" src="Js/check.js"> </script>
+</head>
+<body>
+<!--<header th:insert="blocks/header :: header" ></header>-->
+<div class="container mt-5">
+    <h1>Users from site</h1>
+    <table>
+        <tr>
+            <td>id</td>
+            <td>x</td>
+            <td>y</td>
+        </tr>
+        <tr th:each="temp : ${data}" class="alert alert-info mt-2">
+            <td th:text="${temp.id}"></td>
+            <td th:text="${temp.x}"></td>
+            <td th:text="${temp.y}"></td>
+        </tr>
+    </table>
+    Введите id региона
+    <form method="post">
+        <input type="text" name="proc">
+        <input type = "submit">
+    </form>
+    <form method="post">
+        <input type = "submit" name="but" value="Mail">
+    </form>
+</div>
+
+</body>
+</html>
