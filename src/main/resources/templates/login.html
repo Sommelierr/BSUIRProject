@@ -6,34 +6,53 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 </head>
 <body>
-<div th:if="${param.error}">
-    Invalid username or password.
-</div>
-<div th:if="${param.logout}">
-    You have been logged out.
-</div>
-<aside class="col-sm-4">
-    <div class="card">
-        <article class="card-body">
-            <a href="/registration" class="float-right btn btn-outline-primary">Sign up</a>
-            <h4 class="card-title mb-4 mt-1">Sign in</h4>
-            <form th:action="@{/login}" method="post">
-
-                <div class="form-group">
-                    <label>Username</label>
-                    <input name="username" class="form-control" placeholder="Username" type="text">
-                </div> <!-- form-group// -->
-                <div class="form-group">
-                    <label>Your password</label>
-                    <input name="password" class="form-control" placeholder="******" type="password">
-                </div> <!-- form-group// -->
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary btn-block"> Sign in  </button>
-                </div> <!-- form-group// -->
-            </form>
-        </article>
-    </div> <!-- card.// -->
-
-</aside>
+    <div th:if="${param.error}">
+        Invalid username or password.
+    </div>
+    <div th:if="${param.logout}">
+        You have been logged out.
+    </div>
+<!-- <div class="col-sm-4"> -->
+    <div class="col-sm-5 container">
+        <div class="card">
+            <article class="card-body">
+                <!-- <a href="/registration" class="float-right btn btn-outline-primary">Sign up</a> -->
+                <h4 class="card-title mb-4 mt-1">Sign in</h4>
+                <form th:action="@{/login}" method="post">
+                    <div class="form-group">
+                        <label>Username</label>
+                        <input name="username" class="form-control" placeholder="Username" type="text">
+                    </div> <!-- form-group// -->
+                    <div class="form-group">
+                        <label>Your password</label>
+                        <input name="password" class="form-control" placeholder="Password" type="password">
+                    </div> <!-- form-group// -->
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+                        <span>If you don't have an account:</span>
+                        <a href="/registration" style="margin-left: 15px">Sign up</a>
+                    </div> <!-- form-group// -->
+                </form>
+            </article>
+        </div> <!-- card.// -->
+    </div>
 </body>
 </html>
+
+<style>
+    .container {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        padding: 40px 0;
+    }
+
+    .card-title {
+        text-align: center;
+    }
+
+    .btn-primary {
+      margin-bottom: 20px;
+    }
+</style>

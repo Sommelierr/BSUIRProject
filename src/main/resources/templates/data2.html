@@ -2,44 +2,100 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Users</title>
+    <title>Отклонение от среднего значения</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <script type="text/javascript" src="Js/check.js"> </script>
 
 </head>
-<body>
-<link rel="stylesheet" href="https://bootstraptema.ru/plugins/2015/bootstrap3/bootstrap.min.css" />
-<link type="text/css" rel="StyleSheet" href="https://bootstraptema.ru/plugins/2016/shieldui/style.css" />
-<script src="https://bootstraptema.ru/plugins/jquery/jquery-1.11.3.min.js"></script>
-<script src="https://bootstraptema.ru/plugins/2016/shieldui/script.js"></script>
+    <body>
+    <link rel="stylesheet" href="https://bootstraptema.ru/plugins/2015/bootstrap3/bootstrap.min.css" />
+    <link type="text/css" rel="StyleSheet" href="https://bootstraptema.ru/plugins/2016/shieldui/style.css" />
+    <script src="https://bootstraptema.ru/plugins/jquery/jquery-1.11.3.min.js"></script>
+    <script src="https://bootstraptema.ru/plugins/2016/shieldui/script.js"></script>
 
-<br><br><br>
+    <!-- <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+            </div>
+        </div>
+    </div> -->
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <!-- <div class="container mt-5">
+            <h1>Отклонение показаний от среднего значения</h1>
+            <table>
+                <tr>
+                    <td>number</td>
+                    <td>temp</td>
+                </tr>
+                <tr th:each="temp : ${data}" class="alert alert-info mt-2">
+                    <td th:text="${temp.id}"></td>
+                    <td th:text="${temp.temperature}"></td>
+                </tr>
+            </table>
+        </div>
+        <form method="post">
+            <input type = "submit" name="but" value="Mail">
+        </form> -->
 
-        </div><!-- /.col-md-8 col-md-offset-2 -->
-    </div><!-- /.row -->
-</div><!-- /.container -->
-<!--<header th:insert="blocks/header :: header" ></header>-->
-<div class="container mt-5">
-    <h1>Отклонение показаний от среднего значения</h1>
-    <table>
-        <tr>
-            <td>number</td>
-            <td>temp</td>
-        </tr>
-        <tr th:each="temp : ${data}" class="alert alert-info mt-2">
-            <td th:text="${temp.id}"></td>
-            <td th:text="${temp.temperature}"></td>
-        </tr>
-    </table>
-</div>
-<form method="post">
-    <input type = "submit" name="but" value="Mail">
-</form>
 
-</body>
+        <div class="container card">
+            <div class="card-body">
+                <h1 class="card-title">Отклонение показаний от среднего значения</h1>
+                <table>
+                    <tr style="font-size: 24px; font-weight: bold;">
+                        <td>Number</td>
+                        <td>Temp</td>
+                    </tr>
+                    <tr th:each="temp : ${data}" class="alert alert-info mt-2">
+                        <td th:text="${temp.id}"></td>
+                        <td th:text="${temp.temperature}"></td>
+                    </tr>
+                </table>
+                <!-- <h3 style="text-align: center;">Input date:</h3> -->
+                <form method="post">
+                    <input type = "submit" name="but" value="Mail" class="btn btn-primary btn-block" style="font-size: 20px;">
+                </form>
+            </div>
+        </div>
+
+    </body>
 </html>
+
+<style>
+    .container {
+        padding: 40px 0;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .card-title {
+        text-align: center;
+    }
+
+    table {
+        margin: 40px auto;
+        width: 80%;
+    }
+
+    th:first-child {
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    tr {
+        text-align: center;
+    }
+
+    form {
+        display: flex;
+        justify-content: space-around;
+
+        width: 60%;
+        margin: 0 auto;
+        margin-top: 50px;
+    }
+
+</style>

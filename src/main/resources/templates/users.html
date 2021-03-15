@@ -1,49 +1,125 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Users</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <script type="text/javascript" src="Js/check.js"> </script>
-</head>
-<body>
-<script type="text/javascript">
-function check(field, flag) {
- if (field[0].checked == false) { for (i=0; i<field.length; i++) field[i].checked = true; }
- else { for (i=0; i<field.length; i++) field[i].checked = false; }
-}
-</script>
-<!--<header th:insert="blocks/header :: header" ></header>-->
-<div class="container mt-5">
-    <h1>Users from site</h1>
-    <form action="/users" method="post">
-        <input type="submit" name="action" value="block">
-        <input type="submit" name="action" value="unblock">
-        <input type="submit" name="action" value="delete">
-    <table>
+    <html xmlns:th="http://www.thymeleaf.org">
+        <head>
+            <meta charset="UTF-8">
+            <title>Users</title>
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+            <script type="text/javascript" src="Js/check.js"> </script>
+        </head>
+        <body>
+        <script type="text/javascript">
+        function check(field, flag) {
+        if (field[0].checked == false) { for (i=0; i<field.length; i++) field[i].checked = true; }
+        else { for (i=0; i<field.length; i++) field[i].checked = false; }
+        }
+        </script>
+        <!--<header th:insert="blocks/header :: header" ></header>-->
+        <!-- <div class="container mt-5">
+            <h1>Users from site</h1>
+            <form action="/users" method="post">
+                <input type="submit" name="action" value="block">
+                <input type="submit" name="action" value="unblock">
+                <input type="submit" name="action" value="delete">
+                <table>
+                    <tr>
+                        <td><input type="checkbox" name="listAll" th:value="listAll" onclick="check(this.form.checkId, 1)"></td>
+                        <td>id</td>
+                        <td>name</td>
+                        <td>email</td>
+                        <td>register date</td>
+                        <td>login date</td>
+                        <td>status</td>
+                    </tr>
+                    <tr th:each="user : ${users}" class="alert alert-info mt-2">
+                        <td><input type="checkbox" name="checkId" th:value="${user.id}"></td>
+                        <td th:text="${user.id}"></td>
+                        <td th:text="${user.username}"></td>
+                        <td th:text="${user.email}"></td>
+                        <td th:text="${user.registrationDate}"></td>
+                        <td th:text="${user.loginDate}"></td>
+                        <td th:text="${user.status}"></td>
+                    </tr>
+                </table>
+            </form>
+        </div> -->
 
-    <tr>
-        <td><input type="checkbox" name="listAll" th:value="listAll" onclick="check(this.form.checkId, 1)"></td>
-        <td>id</td>
-        <td>name</td>
-        <td>email</td>
-        <td>register date</td>
-        <td>login date</td>
-        <td>status</td>
-    </tr>
-    <tr th:each="user : ${users}" class="alert alert-info mt-2">
-        <td><input type="checkbox" name="checkId" th:value="${user.id}"></td>
-        <td th:text="${user.id}"></td>
-        <td th:text="${user.username}"></td>
-        <td th:text="${user.email}"></td>
-        <td th:text="${user.registrationDate}"></td>
-        <td th:text="${user.loginDate}"></td>
-        <td th:text="${user.status}"></td>
-        </tr>
-    </table>
-    </form>
-</div>
+            <div class="container card">
+                <div class="card-body">
+                    <h1 class="card-title">Users from site</h1>
+                    <form action="/users" method="post">
+                        <div class="buttons">
+                            <input type="submit" name="action" value="block" class="btn btn-primary" style="font-size: 16px;">
+                            <input type="submit" name="action" value="unblock" class="btn btn-primary" style="font-size: 16px;">
+                            <input type="submit" name="action" value="delete" class="btn btn-primary" style="font-size: 16px;">
+                        </div>
+                        
+                        <table>
+                            <tr>
+                                <td><input type="checkbox" name="listAll" th:value="listAll" onclick="check(this.form.checkId, 1)"></td>
+                                <td>Id</td>
+                                <td>Name</td>
+                                <td>Email</td>
+                                <td>Register date</td>
+                                <td>Login date</td>
+                                <td>Status</td>
+                            </tr>
+                            <tr th:each="user : ${users}" class="alert alert-info mt-2">
+                                <td><input type="checkbox" name="checkId" th:value="${user.id}"></td>
+                                <td th:text="${user.id}"></td>
+                                <td th:text="${user.username}"></td>
+                                <td th:text="${user.email}"></td>
+                                <td th:text="${user.registrationDate}"></td>
+                                <td th:text="${user.loginDate}"></td>
+                                <td th:text="${user.status}"></td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+            </div>
+        </div>
 
-</body>
-</html>
+        </body>
+    </html>
+
+    <style>
+        .container {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            padding: 40px 0;
+        }
+    
+        .card-title {
+            text-align: center;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: space-around;
+            width: 50%;
+            margin: 0 auto;
+        }
+    
+        table {
+            margin: 40px auto;
+            width: 100%;
+        }
+    
+        tr:first-child {
+            font-size: 18px;
+            font-weight: bold;
+        }
+    
+        tr {
+            text-align: center;
+        }
+    
+        form {
+            width: 80%;
+            margin: 0 auto;
+            margin-top: 50px;
+        }
+    
+    </style>

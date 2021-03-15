@@ -2,15 +2,15 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
+    <title>Registration</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 </head>
 <body>
 <div th:text="${errorMessage}"></div>
-<aside class="col-sm-4">
+<aside class="col-sm-4 container">
     <div class="card">
         <article class="card-body">
-            <a href="/login" class="float-right btn btn-outline-primary">Sign in</a>
+            <!-- <a href="/login" class="float-right btn btn-outline-primary">Sign in</a> -->
             <h4 class="card-title mb-4 mt-1">Sign up</h4>
             <form method="post" modelAttribute="userForm">
                 <div class="form-group">
@@ -23,14 +23,16 @@
                 </div> <!-- form-group// -->
                 <div class="form-group">
                     <label>Your password</label>
-                    <input name="password" class="form-control" placeholder="******" type="password">
+                    <input name="password" class="form-control" placeholder="Password" type="password">
                 </div> <!-- form-group// -->
                 <div class="form-group">
                     <label>Confirm your password</label>
-                    <input name="passwordConfirm" class="form-control" placeholder="******" type="password">
+                    <input name="passwordConfirm" class="form-control" placeholder="Confirm password" type="password">
                 </div> <!-- form-group// -->
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary btn-block"> Sign in  </button>
+                    <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
+                    <span>If you already have an account:</span>
+                    <a href="/login" style="margin-left: 15px;">Sign in</a>
                 </div> <!-- form-group// -->
             </form>
         </article>
@@ -39,3 +41,21 @@
 </aside>
 </body>
 </html>
+
+<style>
+    .container {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        padding: 40px 0;
+    }
+
+    .card-title {
+        text-align: center;
+    }
+
+    .btn-primary {
+      margin-bottom: 20px;
+    }
+</style>
